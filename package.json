@@ -1,0 +1,19 @@
+{
+  "name": "wc",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc",
+    "build:watch": "npm run build -- --watch",
+    "serve": "web-dev-server --node-resolve --watch --open",
+    "dev": "npm run build:watch & npm run serve"
+  },
+  "devDependencies": {
+    "@web/dev-server": "^0.1.17",
+    "typescript": "^4.2.4"
+  },
+  "dependencies": {
+    "lit": "latest"
+  }
+}
