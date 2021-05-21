@@ -1,4 +1,4 @@
-import { LitElement, html } from "lit";
+import { LitElement, html, render } from "lit";
 import { customElement, property } from "lit/decorators.js";
 
 @customElement("welcome-el")
@@ -10,3 +10,11 @@ class WelcomeElement extends LitElement {
     return html`<div>${this.name}</div>`;
   }
 }
+
+function Welcome(props) {
+  return html`Welcome, ${props.name}`;
+}
+render(
+  Welcome({ name: "Ivan" }),
+  document.querySelector(".welcome") as HTMLElement
+);
