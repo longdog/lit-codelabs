@@ -8,6 +8,10 @@ class WelcomeElement extends LitElement {
 
   @state() count = 0;
 
+  firstUpdated() {
+    this.count = 2;
+  }
+
   render() {
     return html`<div>
       ${this.name}

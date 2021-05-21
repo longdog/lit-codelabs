@@ -12,6 +12,9 @@ let WelcomeElement = class WelcomeElement extends LitElement {
         this.name = "";
         this.count = 0;
     }
+    firstUpdated() {
+        this.count = 2;
+    }
     render() {
         return html `<div>
       ${this.name}
