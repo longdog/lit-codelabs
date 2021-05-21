@@ -1,13 +1,18 @@
 import { LitElement, html, render } from "lit";
-import { customElement, property } from "lit/decorators.js";
+import { customElement, property, state } from "lit/decorators.js";
 
 @customElement("welcome-el")
 class WelcomeElement extends LitElement {
   @property({ type: String })
   name = "";
 
+  @state() count = 0;
+
   render() {
-    return html`<div>${this.name}</div>`;
+    return html`<div>
+      ${this.name}
+      <button @click=${() => this.count++}>click ${this.count}</button>
+    </div>`;
   }
 }
 
