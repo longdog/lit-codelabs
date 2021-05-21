@@ -12,6 +12,11 @@ class WelcomeElement extends LitElement {
     this.count = 2;
   }
 
+  connectedCallback() {
+    super.connectedCallback();
+    window.addEventListener("resize", () => console.log("resize"));
+  }
+
   render() {
     return html`<div>
       ${this.name}
