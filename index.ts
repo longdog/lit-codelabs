@@ -1,7 +1,7 @@
 import { html, render } from "lit";
 
 const props = {
-  disabled: true,
+  disabled: false,
   label: "my label",
   class: "my class",
   value: "my value",
@@ -23,6 +23,8 @@ const elem = html`<div>
     ?disabled=${props.disabled}
     class="${props.class}"
     .value=${props.value}
+    @click=${() => alert("click!")}
+    @input=${(e) => console.log(e.target.value)}
   />
 </div>`;
 
