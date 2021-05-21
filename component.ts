@@ -1,4 +1,4 @@
-import { LitElement, html, render } from "lit";
+import { LitElement, html, render, PropertyValues } from "lit";
 import { customElement, property, state } from "lit/decorators.js";
 
 @customElement("welcome-el")
@@ -15,6 +15,10 @@ class WelcomeElement extends LitElement {
   connectedCallback() {
     super.connectedCallback();
     window.addEventListener("resize", () => console.log("resize"));
+  }
+
+  updated(prevProps: PropertyValues<this>) {
+    console.log(prevProps);
   }
 
   render() {

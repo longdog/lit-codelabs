@@ -19,6 +19,9 @@ let WelcomeElement = class WelcomeElement extends LitElement {
         super.connectedCallback();
         window.addEventListener("resize", () => console.log("resize"));
     }
+    updated(prevProps) {
+        console.log(prevProps);
+    }
     render() {
         return html `<div>
       ${this.name}
