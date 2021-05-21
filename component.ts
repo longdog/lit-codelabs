@@ -12,13 +12,22 @@ class WelcomeElement extends LitElement {
     this.count = 2;
   }
 
+  onResize() {
+    console.log("resize");
+  }
+
   connectedCallback() {
     super.connectedCallback();
-    window.addEventListener("resize", () => console.log("resize"));
+    window.addEventListener("resize", this.onResize);
   }
 
   updated(prevProps: PropertyValues<this>) {
     console.log(prevProps);
+  }
+
+  disconnectedCallback() {
+    super.disconnectedCallback();
+    window.removeEventListener("resize", this.onResize);
   }
 
   render() {

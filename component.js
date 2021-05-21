@@ -15,12 +15,19 @@ let WelcomeElement = class WelcomeElement extends LitElement {
     firstUpdated() {
         this.count = 2;
     }
+    onResize() {
+        console.log("resize");
+    }
     connectedCallback() {
         super.connectedCallback();
-        window.addEventListener("resize", () => console.log("resize"));
+        window.addEventListener("resize", this.onResize);
     }
     updated(prevProps) {
         console.log(prevProps);
+    }
+    disconnectedCallback() {
+        super.disconnectedCallback();
+        window.removeEventListener("resize", this.onResize);
     }
     render() {
         return html `<div>
