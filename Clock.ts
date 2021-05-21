@@ -6,7 +6,7 @@ class Clock extends LitElement {
   @state()
   private date = new Date();
 
-  private timerID: number;
+  private timerID = -1 as unknown as ReturnType<typeof setTimeout>;
 
   tick() {
     this.date = new Date();

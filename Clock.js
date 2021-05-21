@@ -10,6 +10,7 @@ let Clock = class Clock extends LitElement {
     constructor() {
         super(...arguments);
         this.date = new Date();
+        this.timerID = -1;
     }
     tick() {
         this.date = new Date();
