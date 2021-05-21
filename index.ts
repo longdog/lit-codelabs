@@ -1,5 +1,12 @@
 import { html, render } from "lit";
 
+const props = {
+  disabled: true,
+  label: "my label",
+  class: "my class",
+  value: "my value",
+};
+
 const itemsToBuy = [
   html`<li>Bananas</li>`,
   html`<li>oranges</li>`,
@@ -12,6 +19,11 @@ const elem = html`<div>
   <ul>
     ${itemsToBuy}
   </ul>
+  <input
+    ?disabled=${props.disabled}
+    class="${props.class}"
+    .value=${props.value}
+  />
 </div>`;
 
 render(elem, document.getElementById("root"));
