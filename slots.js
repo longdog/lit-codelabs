@@ -17,4 +17,17 @@ let SlotElem = class SlotElem extends LitElement {
 SlotElem = __decorate([
     customElement("slot-elem")
 ], SlotElem);
+let WithSlot = class WithSlot extends LitElement {
+    render() {
+        return html `
+      <slot-elem>
+        <h1 slot="header">HEADER slot</h1>
+        <h2 slot="footer">FOOTER slot</h2>
+      </slot-elem>
+    `;
+    }
+};
+WithSlot = __decorate([
+    customElement("with-slot")
+], WithSlot);
 //# sourceMappingURL=slots.js.map

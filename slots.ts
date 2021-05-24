@@ -10,3 +10,15 @@ class SlotElem extends LitElement {
     </div>`;
   }
 }
+
+@customElement("with-slot")
+class WithSlot extends LitElement {
+  render() {
+    return html`
+      <slot-elem>
+        <h1 slot="header">HEADER slot</h1>
+        <h2 slot="footer">FOOTER slot</h2>
+      </slot-elem>
+    `;
+  }
+}
