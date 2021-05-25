@@ -1,10 +1,13 @@
 import { LitElement, html, render, PropertyValues } from "lit";
-import { customElement, property, state } from "lit/decorators.js";
+import { customElement, property, state, query } from "lit/decorators.js";
 
 @customElement("welcome-el")
 class WelcomeElement extends LitElement {
   @property({ type: String })
   name = "";
+
+  @query("input")
+  inputEl!: HTMLInputElement;
 
   @state() count = 0;
 
@@ -30,10 +33,15 @@ class WelcomeElement extends LitElement {
     window.removeEventListener("resize", this.onResize);
   }
 
+  onClick() {
+    this.inputEl.focus();
+  }
+
   render() {
     return html`<div>
       ${this.name}
-      <button @click=${() => this.count++}>click ${this.count}</button>
+      <input type="text" /><br />
+      <button @click=${this.onClick}>click ${this.count}</button>
     </div>`;
   }
 }

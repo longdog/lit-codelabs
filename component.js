@@ -5,7 +5,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 import { LitElement, html, render } from "lit";
-import { customElement, property, state } from "lit/decorators.js";
+import { customElement, property, state, query } from "lit/decorators.js";
 let WelcomeElement = class WelcomeElement extends LitElement {
     constructor() {
         super(...arguments);
@@ -29,16 +29,23 @@ let WelcomeElement = class WelcomeElement extends LitElement {
         super.disconnectedCallback();
         window.removeEventListener("resize", this.onResize);
     }
+    onClick() {
+        this.inputEl.focus();
+    }
     render() {
         return html `<div>
       ${this.name}
-      <button @click=${() => this.count++}>click ${this.count}</button>
+      <input type="text" /><br />
+      <button @click=${this.onClick}>click ${this.count}</button>
     </div>`;
     }
 };
 __decorate([
     property({ type: String })
 ], WelcomeElement.prototype, "name", void 0);
+__decorate([
+    query("input")
+], WelcomeElement.prototype, "inputEl", void 0);
 __decorate([
     state()
 ], WelcomeElement.prototype, "count", void 0);
